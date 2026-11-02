@@ -14,7 +14,14 @@ const app = express()
 
 // Middlewares
 app.use(express.json())
-app.use(cors())
+
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://imagify-sigma-drab.vercel.app"
+    ]
+}));
+
 
 // Connect MongoDB
 await connectDB()
